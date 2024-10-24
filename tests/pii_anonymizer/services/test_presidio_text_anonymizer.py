@@ -23,8 +23,8 @@ async def test_presidio_text_anonymizer():
         text=text,
         analyzer_results=analyzed_result,
         operators={
-            "PERSON": LabelGenerator(),
-            "PHONE_NUMBER": LabelGenerator(),
+            "PERSON": LabelGenerator,
+            "PHONE_NUMBER": LabelGenerator,
         },
     )
 
@@ -43,8 +43,8 @@ async def test_presidio_text_anonymizer_no_entities():
         text=text,
         analyzer_results=[],
         operators={
-            "PERSON": NameGenerator(),
-            "PHONE_NUMBER": PhoneGenerator(),
+            "PERSON": NameGenerator,
+            "PHONE_NUMBER": PhoneGenerator,
         },
     )
 

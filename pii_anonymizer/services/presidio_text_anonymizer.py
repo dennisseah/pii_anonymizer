@@ -31,14 +31,14 @@ class PresidioTextAnonymizer(ITextAnonymizer):
 
     def format_anonymized_operators(
         self,
-        operators: dict[TextAnalyzerType, Operator],
+        operators: dict[TextAnalyzerType, type[Operator]],
         engine: AnonymizerEngine,
     ) -> dict[str, OperatorConfig]:
         results = {}
 
         for k, v in operators.items():
-            engine.add_anonymizer(v.__class__)
-            results[k] = OperatorConfig(v.operator_name(), {})
+            engine.add_anonymizer(v)
+            results[k] = OperatorConfig(v().operator_name(), {})
 
         return results
 
@@ -46,7 +46,7 @@ class PresidioTextAnonymizer(ITextAnonymizer):
         self,
         text: str,
         analyzer_results: list[TextAnalyzedResult],
-        operators: dict[TextAnalyzerType, Operator],
+        operators: dict[TextAnalyzerType, type[Operator]],
     ) -> TextAnonymizedResult:
         engine = AnonymizerEngine()
 

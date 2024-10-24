@@ -11,4 +11,13 @@ class ITextAnalyzer(Protocol):
 
     async def analyze(
         self, text: str, entities: list[TextAnalyzerType], language: str = "en"
-    ) -> list[TextAnalyzedResult]: ...
+    ) -> list[TextAnalyzedResult]:
+        """
+        Analyze the text for the given entities.
+
+        :param text : The text to analyze.
+        :param entities : The entities to analyze.
+        :param language : The language of the text. Default is "en".
+        :return : The analyzed result.
+        """
+        ...

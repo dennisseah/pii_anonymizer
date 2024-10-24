@@ -14,6 +14,7 @@ lagom = "^2.6.0"
 python-dotenv = "^1.0.1"
 pydantic = "^2.9.2"
 faker = "^30.8.0"
+dateparser = "^1.2.0"
 
 
 [tool.poetry.group.dev.dependencies]

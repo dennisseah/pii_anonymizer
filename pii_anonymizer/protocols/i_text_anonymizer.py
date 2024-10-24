@@ -16,5 +16,14 @@ class ITextAnonymizer(Protocol):
         self,
         text: str,
         analyzer_results: list[TextAnalyzedResult],
-        operators: dict[TextAnalyzerType, Operator],
-    ) -> TextAnonymizedResult: ...
+        operators: dict[TextAnalyzerType, type[Operator]],
+    ) -> TextAnonymizedResult:
+        """
+        Anonymize the text based on the analyzed results.
+
+        :param text : The text to anonymize.
+        :param analyzer_results : The analyzed results.
+        :param operators : The operators to use for anonymization.
+        :return : The anonymized result.
+        """
+        ...
